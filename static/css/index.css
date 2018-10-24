@@ -1,0 +1,228 @@
+*{
+    margin: 0; padding: 0;
+}
+html, body{
+     color: #333;
+}
+a{
+    color: #333;
+    text-decoration: none;
+}
+.m-header{
+    padding: 20px 20px 0;
+    background: lightgoldenrodyellow;
+}
+
+.m-header .infos{
+    padding: 10px;
+    background: #fff;
+    text-align: right;
+}
+
+.m-header .m-head_img{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.m-header .head_img{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    width: 60px;
+    transform: translate(-50%, -50%);
+}
+
+
+.m-items{
+    padding: 20px;
+    background: lightgoldenrodyellow;
+
+}
+.m-items .header{
+    padding: 20px 0;
+    background-color: #fff;
+}
+
+
+.u-btn{
+    display: inline-block;
+    margin: 0 20px;
+    background-color: darkseagreen;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    color: #333;
+}
+
+.u-btn-middle{
+    font-size: 16px;
+}
+
+.u-btn-right{
+    float: right;
+}
+
+
+.m-items .list{
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgba(255,255,255,0.7);
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+    text-indent: 50px;
+}
+.m-items .list:hover{
+    background-color: darkseagreen;
+    color: #fff;
+}
+
+.m-items .list:first-child:hover{
+    background: #fff;
+    color: #333;
+}
+.m-items .list a{
+    display: block;
+}
+
+
+.m-items .list .u-btn-right{
+    display: inline;
+    float: none;
+    position: absolute;
+    right:0;
+    top:6px;
+    text-indent: 0;
+    background-color: #fff;
+    opacity: 0;
+}
+
+.m-items .list:hover .u-btn-right{
+    opacity: 1;
+}
+
+
+.m-bot-container{
+    padding: 20px;
+    background: lightgoldenrodyellow;
+}
+
+.m-form{
+    background: #fff;
+}
+
+.upload-file-panel{
+    padding: 20px;
+
+}
+
+.upload-file-panel .u-btn{
+    height: 30px;
+}
+
+.upload-file-panel .list{
+    margin-bottom: 20px;
+}
+
+.input-file-con {
+    display: inline;
+    position: relative;
+    line-height: 30px;
+    background: darkseagreen;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #333;
+    text-decoration: none;
+    text-indent: 0;
+}
+
+.form-create-folder{
+    float: right;
+    width: 316px;
+    overflow: hidden;
+    transition: width ease-out 0.3s;
+    white-space: nowrap;
+}
+
+.form-create-folder.hide{
+    width: 0;
+}
+
+.u-input{
+    padding: 6px 10px;
+    font-size: 16px;
+}
+
+.input-file-con input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.no-file-error{
+    padding: 20px 0;
+    text-align: center;
+}
+
+.u-icon{
+    position: absolute;
+    left:20px;
+    top:8px;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("/static/images/icons/unknown.png");
+}
+.u-icon.txt{ background-image: url("/static/images/icons/txt.png");  }
+.u-icon.doc{ background-image: url("/static/images/icons/doc.png");  }
+.u-icon.html{ background-image: url("/static/images/icons/html.png");  }
+.u-icon.js{ background-image: url("/static/images/icons/js.png");  }
+.u-icon.css{ background-image: url("/static/images/icons/css.png");  }
+.u-icon.file{ background-image: url("/static/images/icons/file.png");  }
+.u-icon.py{ background-image: url("/static/images/icons/py.png");  }
+.u-icon.png,
+.u-icon.jpg,
+.u-icon.gif,
+.u-icon.jpeg{ background-image: url("/static/images/icons/img.png");  }
+
+
+@keyframes slideRightDelay {
+    0%,60%{ transform: translateX(-100%); opacity: 0}
+    100%{ transform: translateX(0); opacity: 1}
+}
+
+@keyframes slideRightDelay2 {
+    0%,80%{ transform: translateX(-100%); opacity: 0}
+    100%{ transform: translateX(0); opacity: 1}
+}
+
+
+
+@keyframes slideDown {
+    0%{ transform: translateY(-100%); opacity: 0; }
+    80%{transform: translateY(0)}
+    90%{ transform: translateY(10%)}
+    100%{ transform: translateY(0); opacity: 1}
+}
+
+
+.an-mi-header{
+    animation: slideDown ease-out 1.2s;
+}
+
+.an-mi-bot{
+    animation: slideRightDelay ease-out 0.8s;
+}

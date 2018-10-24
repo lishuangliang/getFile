@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name=viewport>
+    <title>getFiles</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>
+<body>
+
+    <div class="m-header an-mi-header">
+        <div class="infos">
+
+            {% if curr_user %}
+                 <div class="m-head_img">
+                    <img class="head_img" src="{{ curr_user.avatar }}" />
+                </div>
+                <span>欢迎您，{{ curr_user.uname }}</span>
+                <a href="/update_user/">修改个人信息</a>
+                <a href="/logout/">退出</a>
+            {% else %}
+                <a href="/login/">登录</a>
+                <a href="/regist/">注册</a>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <div class="m-items">
+        <div class="header">
+            {% if not is_home %}
+                <a href="{{ sub_path }}" class="u-btn u-btn-back">返回上一级</a>
+                <a class="u-btn u-btn-right to-home" href="{{ home_router }}">去首页</a>
+            {% else %}
+                <a  class="u-btn home">首页</a>
+            {% endif %}
+
+        </div>
+
+
+        {% if not result_dic %}
+            <div class="list"><p class="no-file-error">当前路径下无文件</p></div>
+        {% endif %}
+
+        {% for list in result_dic %}
+            <div class="list">
+            {% if list.filetype == 'folder' %}
+                <div class="u-icon file"></div>
+                <a href="{{ list.filepath }}" >{{ list.filename }}</a>
+            {% else %}
+                <div class="u-icon {{list.filetype}}"></div>
+                <a href="{%static list.filepath%}" download>{{ list.filename }}</a>
+            {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="m-bot-container an-mi-bot">
+        <div class="m-form upload-file-panel">
+            <form action="/createFold/" method="post">
+                {% csrf_token %}
+                <div class="list">
+                    <button class="u-btn u-btn-middle btn-create-fold" type="button">创建文件夹</button>
+
+                    <input type="hidden" value="{{ curr_path }}" name="curr_path">
+
+                    <div class="form-create-folder hide">
+                        <input type="text" name="foldname" class="u-input" required>
+                        <button type="submit" class="u-btn u-btn-middle">创建</button>
+                    </div>
+                </div>
+            </form>
+            <form action="/uploadfile/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="list ">
+                    <div class="input-file-con u-btn">
+                        <input type="file" required id="iptUploadFile" name="file" class="u-input-file">
+                        <span id="tip">选择上传文件</span>
+                    </div>
+
+                    <input type="hidden" value="{{ curr_path }}" name="curr_path">
+                    <button class="u-btn u-btn-middle" type="submit">确定上传</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        (function () {
+
+            var uInputFile = document.querySelector('.u-input-file'),
+                tip = document.querySelector('#tip');
+
+            uInputFile.addEventListener('change', function () {
+                if(this.files.length === 1){ //处理文件名
+                    tip.textContent = this.files[0].name;
+                }else {
+                    tip.textContent = '已选择 ' + this.files.length + ' 个文件';
+                }
+            }, false)
+
+
+            var btnCreateFold = document.querySelector('.btn-create-fold'),
+                formCreateFolder = document.querySelector('.form-create-folder');
+
+            btnCreateFold.addEventListener('click', function () {
+                if(formCreateFolder.classList.contains('hide')){
+                    formCreateFolder.classList.remove('hide')
+                }else{
+                    formCreateFolder.classList.add('hide')
+                }
+            })
+
+
+        })();
+    </script>
+
+</body>
+</html>

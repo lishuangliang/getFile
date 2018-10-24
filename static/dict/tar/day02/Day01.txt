@@ -1,0 +1,39 @@
+AJAX
+
+[
+	{
+		"model": "index.user", 
+		"pk": 1, 
+		"fields": {
+			"uphone": "13912345678", 
+			"upwd": "123456", 
+			"uname": "sf.zh", 
+			"uemail": "zh@163.com"
+		}
+	}, 
+	{
+		"model": "index.user", 
+		"pk": 2, 
+		"fields": {"uphone": "13987654321", "upwd": "654321", "uname": "wj.zh", "uemail": "wuj@163.com"}	
+	}
+]
+
+
+1.完善注册操作
+	1.手机号码的重复性验证(ajax)
+		如果存在则给出提示并阻止提交
+	2.注册成功则免登录
+		注册成功之后直接将id 和 uphone 的值保存进 session
+
+
+
+
+
+
+
+
+
+
+
+
+

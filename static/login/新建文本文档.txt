@@ -1,0 +1,100 @@
+load data infile '/var/lib/mysql-files/*.txt'
+into table tabname
+fields terminated by ','
+lines terminated by '\n'
+
+
+
+????
+select * from tabname
+into outfile '/var/lib/mysql-files/*.txt'
+fields terminated by ','
+lines terminated by '/n'
+
+7c4a8d09ca3762af61e59520943dc26494f8941b
+
+183.230.203.181:6002
+
+
+create database webdb default charset utf8 collate utf8_general_ci;
+
+
+创建表
+cd /var/lib/mysql-files/
+cp *.txt /var/lib/mysql-files /*.txt
+
+load data infile '/var/lib/mysql-files/*.txt'
+into table tabname
+fields terminated by ','
+lines terminated by '\n'
+
+
+constraint 外键名 foreign key(字段)
+references 主表(字段) 
+on deltet 级联动作
+on update 级联动作
+
+
+decimal(12,2)
+
+10 / 9   1 .. 1   ==>  4 + 1
+2 / 9    0 .. 2   ==>  0 + 1
+
+cascade
+
+restrict
+
+set null
+
+
+
+alter table bjtab add
+foreign key(money) references jftab(money)
+on delete cascade
+on update cascade;
+
+
+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| word      | varchar(64) | YES  |     | NULL    |                |
+| interpret | text        | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+
+
+本地文件搜索：
+	again:	0.016405105590820312
+	zoology: 0.027785301208496094
+
+数据库搜索：
+	again: 0.022912263870239258
+	zoology: 0.022087574005126953
+
+
+
+
+class User(models.Model):
+    uname = models.CharField(max_length=30)
+    upwd = models.CharField(max_length=30)
+    uphone = models.CharField(max_length=11)
+    headimg = models.ImageField(null=True)
+
+    def __repr__(self):
+        return '<User %s>' % self.name
+
+    def __str__(self):
+        return '<User %s>' % self.name
+
+
+
+
+
+
+
+
+
+
+
+
+
